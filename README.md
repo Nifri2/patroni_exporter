@@ -1,7 +1,7 @@
-# patroni_exporter
+# Prometheus Exporter for Patroni
 Based on [The Patroni REST API](https://patroni.readthedocs.io/en/latest/rest_api.html)
 
-- [patroni_exporter](#patroni_exporter)
+- [Prometheus Exporter for Patroni](#prometheus-exporter-for-patroni)
   - [Exported Metrics](#exported-metrics)
   - [Installation](#installation)
 
