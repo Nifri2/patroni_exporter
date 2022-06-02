@@ -12,5 +12,5 @@
 |`health`| patroni_exporter_health | returns `OK` only when PostgreSQL is up and running, otherwise `ERROR`|
 |`liveness`| patroni_exporter_liveness | returns `OK` what only indicates that Patroni is running, otherwise `ERROR`|
 |`check`| patroni_exporter_running_check | returns `running` when the exporter is working properly, otherwise uuuh.... probalby nothing because the process would be dead|
-|-------|----------|------------|
+
 
