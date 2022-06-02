@@ -1,5 +1,5 @@
 # patroni_exporter
-
+Based on [The Patroni REST API](https://patroni.readthedocs.io/en/latest/rest_api.html)
 ## Exported Metrics
 
 | Name  | Endpoint | Descripton |
