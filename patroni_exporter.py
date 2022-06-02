@@ -40,11 +40,11 @@ graphs  = {}
 graphs['lag'] = Gauge('patroni_exporter_replica_lag', "Replica Lag of the current node")
 graphs['lag_mb'] = Gauge('patroni_exporter_replica_lag_mb', "Replica Lag of the current node in MB")
 graphs['timeline'] = Gauge('patroni_exporter_node_timeline', "Timeline of the current node")
-graphs['check'] = Enum('patroni_exporter_running_check', 'Check if This script is running', states=['running', 'stopped'])
-graphs['role'] = Enum('patroni_exporter_role', "Role of the current node", states=['leader', 'replica'])
+graphs['check'] = Enum('patroni_exporter_running_check', 'Check if This script is running', states=['running', 'stopped', "ERROR"])
+graphs['role'] = Enum('patroni_exporter_role', "Role of the current node", states=['leader', 'replica', 'standby', "ERROR"])
 graphs['health'] = Enum('patroni_exporter_health', "Health of the current node", states=['OK', 'ERROR'])
 graphs['liveness'] = Enum('patroni_exporter_liveness', "Liveness of the current node", states=['OK', 'ERROR'])
-graphs['state'] = Enum('patroni_exporter_state', "State of the current node", states=['running', 'stopped'])
+graphs['state'] = Enum('patroni_exporter_state', "State of the current node", states=['running', 'stopped', 'ERROR'])
 
 app = Flask(__name__)
 
@@ -62,7 +62,7 @@ def scrape():
             if isinstance(i[1], Gauge):
                 i[1].set(0)
             elif isinstance(i[1], Enum):
-                i[1].set('ERROR')    
+                i[1].state('ERROR')    
         
 
     graphs['role'].state(data['role'])
